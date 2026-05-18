@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh *)",
+      "PowerShell(winget install *)",
+      "PowerShell(git config *)",
+      "PowerShell(gh auth *)",
+      "PowerShell(New-Item *)",
+      "PowerShell(Start-Process \"C:\\\\Users\\\\diogo\\\\OneDrive\\\\Documentos\\\\projeto 1 claude\\\\index.html\")",
+      "WebFetch(domain:www.homecad.com.br)",
+      "WebFetch(domain:homecad.com.br)",
+      "WebFetch(domain:web.archive.org)",
+      "PowerShell(Rename-Item *)",
+      "WebFetch(domain:webcache.googleusercontent.com)"
+    ]
+  }
+}
