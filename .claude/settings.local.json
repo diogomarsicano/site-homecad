@@ -16,5 +16,17 @@
       "Skill(update-config)",
       "PowerShell(git *)"
     ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Program Files\\Git\\cmd\\git.exe\" -C \"C:\\Users\\diogo\\OneDrive\\Documentos\\projeto 1 claude\" add . & \"C:\\Program Files\\Git\\cmd\\git.exe\" -C \"C:\\Users\\diogo\\OneDrive\\Documentos\\projeto 1 claude\" commit -m \"Atualizacao automatica\" & \"C:\\Program Files\\Git\\cmd\\git.exe\" -C \"C:\\Users\\diogo\\OneDrive\\Documentos\\projeto 1 claude\" push origin master"
+          }
+        ]
+      }
+    ]
   }
 }
