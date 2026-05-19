@@ -16,7 +16,8 @@
       "Skill(update-config)",
       "PowerShell(git *)",
       "Bash(gh repo *)",
-      "Bash(start *)"
+      "Bash(start *)",
+      "Bash(git *)"
     ]
   },
   "hooks": {
