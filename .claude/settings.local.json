@@ -14,7 +14,8 @@
       "WebFetch(domain:webcache.googleusercontent.com)",
       "PowerShell(gh repo *)",
       "Skill(update-config)",
-      "PowerShell(git *)"
+      "PowerShell(git *)",
+      "Bash(gh repo *)"
     ]
   },
   "hooks": {
