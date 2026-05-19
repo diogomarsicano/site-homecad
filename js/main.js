@@ -40,13 +40,51 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Formulário de contato → mailto
-document.getElementById('contatoForm').addEventListener('submit', function (e) {
+// Formulário de contato → Web3Forms
+document.getElementById('contatoForm').addEventListener('submit', async function (e) {
   e.preventDefault();
-  const nome = this.nome.value;
-  const email = this.email.value;
-  const mensagem = this.mensagem.value;
-  const subject = encodeURIComponent(`Contato via site — ${nome}`);
-  const body = encodeURIComponent(`Nome: ${nome}\nE-mail: ${email}\n\n${mensagem}`);
-  window.location.href = `mailto:contato@homecad.com.br?subject=${subject}&body=${body}`;
+
+  const btn = this.querySelector('.form-btn');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: '838af6b8-b1e2-4788-a7e2-22bbf4881222',
+        subject: `Contato via site — ${this.nome.value}`,
+        from_name: 'Site Homecad Tecnologia',
+        replyto: this.email.value,
+        name: this.nome.value,
+        email: this.email.value,
+        message: this.mensagem.value,
+      }),
+    });
+
+    const json = await res.json();
+
+    if (json.success) {
+      setFormFeedback(this, 'success', 'Mensagem enviada! Retornaremos em breve.');
+      this.reset();
+    } else {
+      setFormFeedback(this, 'error', 'Erro ao enviar. Tente novamente ou fale pelo WhatsApp.');
+    }
+  } catch {
+    setFormFeedback(this, 'error', 'Erro de conexão. Verifique sua internet e tente novamente.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Enviar mensagem';
+  }
 });
+
+function setFormFeedback(form, type, message) {
+  let el = form.querySelector('.form-feedback');
+  if (!el) {
+    el = document.createElement('p');
+    form.appendChild(el);
+  }
+  el.className = `form-feedback form-feedback--${type}`;
+  el.textContent = message;
+}

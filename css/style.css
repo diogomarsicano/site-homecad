@@ -857,6 +857,21 @@ a { text-decoration: none; color: inherit; }
   background: var(--accent);
 }
 
+.form-btn:disabled {
+  background: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.form-feedback {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-top: -8px;
+}
+
+.form-feedback--success { color: #2d7a3a; }
+.form-feedback--error   { color: var(--accent); }
+
 /* ===========================
    FOOTER
 =========================== */
