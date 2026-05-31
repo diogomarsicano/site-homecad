@@ -20,7 +20,10 @@
       "Bash(git *)",
       "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
       "Bash(npm --version)",
-      "PowerShell(npm *)"
+      "PowerShell(npm *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match \"node\" } | Select-Object Name; Get-ChildItem \"C:\\\\Users\\\\diogo\\\\AppData\\\\Local\" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match \"node\" } | Select-Object Name)",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\claude-cli-nodejs\" | Select-Object Name; & \"C:\\\\Program Files\\\\claude-cli-nodejs\\\\node.exe\" --version 2>$null; & \"C:\\\\Program Files\\\\claude-cli-nodejs\\\\npm.cmd\" --version 2>$null)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\diogo\\\\AppData\\\\Local\" | Where-Object { $_.Name -match \"node|npm\" } | Select-Object FullName; Get-ChildItem \"C:\\\\ProgramData\" | Where-Object { $_.Name -match \"node|npm\" } | Select-Object FullName)"
     ]
   },
   "hooks": {
